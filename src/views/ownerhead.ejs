@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= title %></title>
+    <style>
+
+.header {
+    overflow:hidden;
+  }      
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: rgb(214, 224, 239);
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: right;
+  display: block;
+  color: #2b2a2a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  overflow:hidden;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 15%;
+  padding-top: 0.25rem;
+  border-top-style: hidden;
+  border-right-style: solid;
+  border-bottom-style: hidden;
+  border-left-style: hidden;
+}
+
+/* Middle column */
+.column.middle {
+  width: 85%;
+  padding-left: 10.25rem;
+  padding-top: 1.25rem;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+.label {
+  color: white;
+  padding: 8px;
+}
+
+.ma {
+    background-color: blueviolet;
+    color: white;
+    
+  font-size: 0.825rem;
+ 
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+  float: left;
+} /* Green */
+
+.mp {
+    background-color: blue;
+    color: white;
+    
+  font-size: 0.825rem;
+ 
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+  float: left;
+} /* Green */
+
+.rp {
+    background-color: teal;
+    color: white;
+    
+  font-size: 0.825rem;
+ 
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+  float: left;
+} /* Green */
+
+.blk {
+    background-color: green;
+    color: white;
+    
+  font-size: 0.825rem;
+ 
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+  float: left;
+} /* Green */
+.info {
+    
+background-color: #737088;
+color: white;
+font-size: 0.625rem;
+padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+
+} /* Blue */
+.warning {
+    background-color: #53039f;
+    color: white;
+   font-size: 0.625rem;
+   padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+
+} /* Orange */
+
+.business {
+  
+  margin-right: 2rem;
+  font-size: 0.825rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+
+} 
+
+.inputy {
+  font-size: 0.825rem;
+  margin-right: 2.9rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25rem;
+} 
+
+.stitle{
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.danger {background-color: #f44336;} /* Red */
+.other {background-color: #e7e7e7; color: black;} /* Gray */
+
+</style>
+<script>
+  function runit() {
+    document.getElementById("address").disabled = true;
+    document.getElementById("name").disabled = true;
+    document.getElementById("website").disabled = true;
+    document.getElementById("ownersubmit").disabled = true;
+    document.getElementById("addbrand").disabled = true;
+    document.getElementById("addcate").disabled = true;
+    document.getElementById("brandadd").disabled = true;
+  }
+  
+  function updateck(){
+    var checkBox = document.getElementById("Ownerupdate");
+   // If the checkbox is checked, display the output text
+   if (checkBox.checked == true){
+    document.getElementById("address").disabled =false;
+    document.getElementById("website").disabled =false;
+    document.getElementById("ownersubmit").disabled = false;
+    document.getElementById("addbrandcheck").disabled = true
+    document.getElementById("branddelete").disabled = true
+
+          } else {
+    document.getElementById("address").disabled = true;
+    document.getElementById("name").disabled = true;
+    document.getElementById("website").disabled = true;
+    document.getElementById("ownersubmit").disabled = true;
+    document.getElementById("addbrandcheck").disabled = false;
+    document.getElementById("branddelete").disabled = false;
+
+     }
+  }
+
+  function updatebrand(){
+    var checkBox = document.getElementById("addbrandcheck");
+   // If the checkbox is checked, display the output text
+   if (checkBox.checked == true){
+    document.getElementById("addbrand").disabled =false;
+    document.getElementById("addcate").disabled =false;
+    document.getElementById("brandadd").disabled = false;
+    document.getElementById("s1").style.color = "black";
+    document.getElementById("s2").style.color = "black";
+    document.getElementById("Ownerupdate").disabled = true
+    document.getElementById("branddelete").disabled = true
+    document.getElementById("AddorRemove").value = "Add"
+
+    } 
+    else {
+      document.getElementById("addbrand").disabled =true;
+      document.getElementById("addcate").disabled =true;
+      document.getElementById("brandadd").disabled = true;
+      document.getElementById("s1").style.color = "gray";
+      document.getElementById("s2").style.color = "gray";
+      document.getElementById("Ownerupdate").disabled = false;
+      document.getElementById("AddorRemove").value = "Remove";
+      document.getElementById("branddelete").disabled = false;
+
+     }
+  }
+
+  function checkowner(){
+    var checkBox = document.getElementById("Ownerupdate");
+    if (checkBox.checked == true){
+        checkBox.checked = false;
+        
+        alert("Business details updated!");
+        document.getElementById("ownersubmit").disabled = true;
+        setTimeout(updateck, 1000);
+        
+        
+    }
+  }
+
+  function checkbrand(){
+    var checkBox = document.getElementById("addbrandcheck");
+    var brandv = document.getElementById("brandname").value;
+
+    if (checkBox.checked == false){
+        
+        alert( brandv + " Removed!");
+        document.getElementById("brandadd").disabled = true;
+        setTimeout(updatebrand, 1000);   
+    }
+    if (checkBox.checked == true){
+        checkBox.checked = false;
+        
+        alert("New Brand added!");
+        document.getElementById("brandadd").disabled = true;
+        setTimeout(updatebrand, 1000);   
+    }
+    
+    
+
+  }
+  </script>
+  </head>
+  <body onload="runit()">

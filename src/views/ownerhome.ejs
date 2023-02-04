@@ -1,0 +1,94 @@
+<%- include('ownerhead', { title: 'Authentication ' }) -%>
+<div class="header">
+    <span class="<%= opsColor %>" font="white" ><%= ops %></span>
+  </div>
+<div class="topnav">
+     
+    <a href="http://localhost:8081"><span class="info"><%= owner %>/Logout</span></a> 
+    <a href="#"><span class="info">View Transactions(Blockchain Admin)</span></a> 
+    
+  </div>
+
+  <div class="row">
+    <div class="column side">
+      <p><a href="http://localhost:8081/ma?owner=<%= owner %>" id="clickme"><span class="warning">Manage Account</span></a></p>
+      <p><a href=" http://localhost:8081/mp?owner=<%= owner %>"> <span class="warning">Manage Products</span></a></p>
+      <p><a href=" http://localhost:8081/rp?owner=<%= owner %>"><span class="warning">View Reports</span></a></p>
+      <p><a href=" http://localhost:8081/blk?owner=<%= owner %>"><span class="warning">Manage Transactions(Blockchain Admin)</span></a></p>
+    </div>
+    
+    <div class="column middle">
+      <form method="post" action="/ma" id="owner-form" class="login-form" autocomplete="off" role="main" onsubmit="checkowner()">
+        <h2 class="stitle">Business Details</h2>
+        <div>
+          <p>
+          <label class="label-email">
+            <span class="inputy">Name</span>
+            <input type="hidden" id="owner" name="owner" value="<%= owner %>"/>
+            <input type="text" class="text" name="name" id="name" value="<%= owner %>" tabindex="1" size="10" required />
+            
+          </label>
+          </p>
+          <p>
+          <label class="label-password">
+            <span class="business">Address</span>
+            <input type="text" class="text" name="address" id="address" value="<%= address %>"  tabindex="2" size="40" required />
+          </label>
+          </p>
+          <p>
+          <label class="">
+            <span class="business">Website</span>
+             <input type="text" class="text" name="website" id="website" value="<%= website %>"  size="25" required />
+            
+          </label>
+          </p>
+        </div>
+        <input type="submit" id="ownersubmit" value="Update details" />
+        <p>
+        <input type="checkbox" name="update" class="show-password a11y-hidden" id="Ownerupdate" tabindex="4" onclick="updateck()"/>
+        <label class="business">
+          <span>Update Details</span>
+        </label>
+        <p>
+      </form>
+      <p></p>
+      <form method="post" action="/ma" id="owner-form" class="login-form" autocomplete="off" role="main" onsubmit="checkbrand()">
+        <input type="hidden" id="owner" name="owner" value="<%= owner %>"/>
+        <input type="hidden" id="AddorRemove" name="AddorRemove" value="Remove"/>
+        <h2 class="stitle">Brand Details</h2>
+        <div>
+          <p>
+          <label class="label-email">
+            <span class="inputy">Brand:::Category</span>
+            <select  id="brandname" name="brandname">
+              <%- brandandCate %>  
+            </select>  
+          </label>
+          </p>
+          <p>
+            <label class="">
+              <span class="business" style="color:gray" id="s1">Brand(Add)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+               <input type="text" class="text" name="addbrand" id="addbrand" value=""  size="25" required />
+            </label>
+            </p>
+            <p>
+              <label class="">
+                <span class="business" style="color:gray" id="s2">Category(Add)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                 <input type="text" class="text" name="addcate" id="addcate" value=""  size="25" required />
+              </label>
+              </p>  
+        </div>
+        <input type="submit" id="branddelete" value="Remove" />
+        <input type="submit" id="brandadd" value="Add" />
+        <p>
+        <input type="checkbox" name="updatebd" class="show-password a11y-hidden" id="addbrandcheck" tabindex="4" onclick="updatebrand()"/>
+        <label class="business">
+          <span>Add Brands</span>
+        </label>
+        <p>
+      </form>
+
+    </div>  
+  </div>
+ 
+<%- include('foot') -%>
